@@ -1,5 +1,12 @@
 # Data from http://catalog.data.gov/dataset/college-scorecard
 
+if !File.exist?(File.expand_path('../../data/college-scorecard.csv', __FILE__))
+  puts "This snippet requires a college scorecard csv:"
+  puts "* Download datasets from http://catalog.data.gov/dataset/college-scorecard"
+  puts "* Move one of the csv files into the ./data directory and rename it 'college-scorecard.csv'"
+  exit
+end
+
 require 'csv'
 
 CSVAdmissionRate = Struct.new(:range) do
