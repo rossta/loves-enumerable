@@ -1,0 +1,94 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    awesome_print (1.6.1)
+    benchmark-ips (2.3.0)
+    byebug (5.0.0)
+      columnize (= 0.9.0)
+    celluloid (0.17.2)
+      celluloid-essentials
+      celluloid-extras
+      celluloid-fsm
+      celluloid-pool
+      celluloid-supervision
+      timers (>= 4.1.1)
+    celluloid-essentials (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-extras (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-fsm (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-pool (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-supervision (0.20.5)
+      timers (>= 4.1.1)
+    coderay (1.1.0)
+    columnize (0.9.0)
+    connection_pool (2.2.0)
+    domain_name (0.5.25)
+      unf (>= 0.0.5, < 1.0.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
+    hitimes (1.2.3)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    mechanize (2.7.3)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (~> 2.0)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.4)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
+    method_source (0.8.2)
+    mime-types (2.6.2)
+    mini_portile (0.6.2)
+    minitest (5.8.1)
+    multipart-post (2.0.0)
+    net-http-digest_auth (1.4)
+    net-http-persistent (2.9.4)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
+    ntlm-http (0.1.1)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.2.0)
+      byebug (~> 5.0)
+      pry (~> 0.10)
+    puma (2.11.3)
+      rack (>= 1.1, < 2.0)
+    rack (1.6.4)
+    simple_oauth (0.3.1)
+    slop (3.6.0)
+    tacokit (0.3.0)
+      faraday
+      faraday_middleware
+      simple_oauth
+    timers (4.1.1)
+      hitimes
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
+    webrobots (0.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  awesome_print
+  benchmark-ips
+  celluloid
+  connection_pool
+  mechanize
+  minitest
+  pry-byebug
+  puma
+  tacokit
+
+BUNDLED WITH
+   1.10.6

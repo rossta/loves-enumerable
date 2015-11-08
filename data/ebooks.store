@@ -1,0 +1,66 @@
+---
+A Tale of Two Cities:
+  :title: A Tale of Two Cities
+  :author: Charles Dickens
+  :index: "/ebooks/98"
+  epub:
+  - "//www.gutenberg.org/ebooks/98.epub.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/98.epub.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  kindle:
+  - "//www.gutenberg.org/ebooks/98.kindle.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/98.kindle.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  txt:
+  - "//www.gutenberg.org/ebooks/98.txt.utf-8"
+  htm: []
+Great Expectations:
+  :title: Great Expectations
+  :author: Charles Dickens
+  :index: "/ebooks/1400"
+  epub:
+  - "//www.gutenberg.org/ebooks/1400.epub.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/1400.epub.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  kindle:
+  - "//www.gutenberg.org/ebooks/1400.kindle.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/1400.kindle.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  txt:
+  - "//www.gutenberg.org/ebooks/1400.txt.utf-8"
+  htm: []
+A Christmas Carol in Prose; Being a Ghost Story of Christmas:
+  :title: A Christmas Carol in Prose; Being a Ghost Story of Christmas
+  :author: Charles Dickens
+  :index: "/ebooks/46"
+  epub:
+  - "//www.gutenberg.org/ebooks/46.epub.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/46.epub.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  kindle:
+  - "//www.gutenberg.org/ebooks/46.kindle.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/46.kindle.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  txt:
+  - "//www.gutenberg.org/ebooks/46.txt.utf-8"
+  htm: []
+Oliver Twist:
+  :title: Oliver Twist
+  :author: Charles Dickens
+  :index: "/ebooks/730"
+  epub:
+  - "//www.gutenberg.org/ebooks/730.epub.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/730.epub.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  kindle:
+  - "//www.gutenberg.org/ebooks/730.kindle.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/730.kindle.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  txt:
+  - "//www.gutenberg.org/ebooks/730.txt.utf-8"
+  htm: []
+David Copperfield:
+  :title: David Copperfield
+  :author: Charles Dickens
+  :index: "/ebooks/766"
+  epub:
+  - "//www.gutenberg.org/ebooks/766.epub.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/766.epub.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  kindle:
+  - "//www.gutenberg.org/ebooks/766.kindle.images?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  - "//www.gutenberg.org/ebooks/766.kindle.noimages?session_id=9e505308c6dd262344954da865cb958d1e56803a"
+  txt:
+  - "//www.gutenberg.org/ebooks/766.txt.utf-8"
+  htm: []
