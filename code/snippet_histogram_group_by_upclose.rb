@@ -7,7 +7,7 @@ puts "Grouped", grouped.inspect
 flattened = grouped.flat_map { |k, v| [k, v.size] }
 puts "Flattened", flattened.inspect
 
-Grouped
-{"friend"=>["friend", "friend"], "though"=>["though"], "always"=>["always"], ...}
-Flattened
-["friend", 2, "though", 1, "always", 1, ...]
+# Grouped
+# {"friend"=>["friend", "friend"], "though"=>["though"], "always"=>["always"], ...}
+# Flattened
+# ["friend", 2, "though", 1, "always", 1, ...]
