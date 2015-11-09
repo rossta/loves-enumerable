@@ -1,6 +1,7 @@
 module CustomEnumerable
   def map
-    # return enum_for(:map) unless block_given?
+    return enum_for(:map) unless block_given?
+
     [].tap do |result|
       each do |item|
         result << yield(item)

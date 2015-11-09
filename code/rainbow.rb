@@ -28,5 +28,5 @@ if __FILE__ == $0
   # Next color: violet
   #
   # Starts with y?
-  # yellow
+  # YELLOW
 end

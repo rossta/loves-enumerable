@@ -1,2 +1,3 @@
 *.plist
 data/college-scorecard.csv
+code/*.html
