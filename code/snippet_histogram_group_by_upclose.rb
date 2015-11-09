@@ -1,5 +1,5 @@
-file = File.open(File.expand_path("../../data/Old-Friend.txt", __FILE__), "r")
-words = file.read.downcase.scan(/\b[a-z]{5,16}\b/)
+file = File.open(File.expand_path("../../data/Thriller.txt", __FILE__), "r")
+words = file.read.downcase.scan(%r{\b[a-z']{2,16}\b}i)
 
 grouped = words.group_by { |w| w }
 puts "Grouped", grouped.inspect

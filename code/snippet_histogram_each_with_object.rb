@@ -1,5 +1,5 @@
-file = File.open(File.expand_path("../../data/Old-Friend.txt", __FILE__), "r")
-words = file.read.downcase.scan(%r{\b[a-z]{4,16}\b}i)
+file = File.open(File.expand_path("../../data/Thriller.txt", __FILE__), "r")
+words = file.read.downcase.scan(%r{\b[a-z']{2,16}\b}i)
 
 histogram = words.each_with_object(Hash.new(0)) do |n, hist|
   hist[n] += 1
