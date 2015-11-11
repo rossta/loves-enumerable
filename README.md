@@ -1,7 +1,9 @@
 # Enumerable: How I fell in love with Ruby
 
-This repository contains code snippets used in my presentation on Ruby's
-enumerable module. Ruby code was written to run on Ruby 2.2.
+This repository contains code snippets used in my presentation on Ruby's enumerable module. Ruby code was written to run on Ruby 2.2.
+
+[Enumerable presentation on Slidedeck](https://speakerdeck.com/rossta/enumerable-how-i-fell-in-love-with-ruby)
+
 
 ## Usage
 
