@@ -78,9 +78,10 @@ check out the following to learn more.
 
 #### Code
 
+* https://github.com/rubinius/rubinius/blob/master/kernel/common/enumerable.rb
+* https://github.com/rubinius/rubinius/blob/master/kernel/common/enumerator.rb
 * https://github.com/sferik/twitter/blob/master/lib/twitter/enumerable.rb
 * https://github.com/bbatsov/powerpack/tree/master/lib/powerpack/enumerable
-* https://github.com/rubinius/rubinius/blob/master/kernel/common/enumerator.rb
 * https://github.com/rubyworks/facets
 
 #### Data sources
