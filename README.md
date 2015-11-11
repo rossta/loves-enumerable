@@ -8,7 +8,7 @@ enumerable module. Ruby code was written to run on Ruby 2.2.
 To run a sample, clone the repo and install the gems:
 
 ```bash
-$ git clone
+$ git clone https://github.com/rossta/loves-enumerable.git
 $ gem install
 ```
 
