@@ -34,11 +34,11 @@ Learn how Enumerable methods are implemented
 - create your own extensions
 
 Encapsulate complexity of enumerating
-- stream data to client
+- e.g. stream data to client,
 - deferred data fetching
 
 Provide Enumerators
-- for any method that returns an enumerable with a block
+- for any method that returns an enumerable with a block:
   return an enumerator when the block is missing
 
 When to be Lazy
