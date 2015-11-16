@@ -11,6 +11,7 @@ To run a sample, clone the repo and install the gems:
 
 ```bash
 $ git clone https://github.com/rossta/loves-enumerable.git
+$ cd loves-enumerable
 $ bundle install
 ```
 
