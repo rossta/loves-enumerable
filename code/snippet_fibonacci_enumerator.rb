@@ -1,8 +1,8 @@
 def fibonacci
-  Enumerator.new do |e|
+  Enumerator.new do |y|
     a, b = 1, 1
     loop do
-      e.yield a
+      y << a
       a, b = b, a + b
     end
   end
