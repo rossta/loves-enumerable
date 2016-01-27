@@ -64,7 +64,7 @@ class Spider
   end
 
   def log(label, info)
-    # warn "%-10s: %s" % [label, info]
+    warn "%-10s: %s" % [label, info]
   end
 
   def agent
