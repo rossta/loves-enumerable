@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+
+gem "mechanize"
+gem "pry-byebug", platforms: [:ruby_21, :ruby_22, :ruby_23]
