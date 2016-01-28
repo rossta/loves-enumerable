@@ -1,3 +1,19 @@
+# A web crawler in Ruby
+#
+# This script provides a generic Spider class for crawling urls and
+# recording data scraped from websites. The Spider is to be used in
+# collaboration with a "processor" class that defines which pages to
+# visit and how data from those pages should be consumed. In this example
+# the processor is ProgrammableWeb.
+#
+# Usage:
+#   spider = ProgrammableWeb.new
+#   spider.results.take(10)
+#   => [{...}, {...}, ...]
+#
+# Requirements:
+#   Ruby 2.0+
+#
 require "mechanize"
 require "pry"
 
@@ -75,9 +91,10 @@ end
 class ProgrammableWeb
   attr_reader :root, :handler
 
-  def initialize(root: "https://programmableweb.com/apis/directory", handler: :process_index)
+  def initialize(root: "https://programmableweb.com/apis/directory", handler: :process_index, **options)
     @root = root
     @handler = handler
+    @options = options
   end
 
   def process_index(page, data = {})
@@ -108,7 +125,7 @@ class ProgrammableWeb
   private
 
   def spider
-    @spider ||= Spider.new(self)
+    @spider ||= Spider.new(self, @options)
   end
 end
 
