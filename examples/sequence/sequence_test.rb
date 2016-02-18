@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './sequence'
+require_relative './sequence'
 
 class TestSequence < Minitest::Test
   include Sequence
@@ -50,9 +50,9 @@ class TestSequence < Minitest::Test
   end
 
   def test_iterate_decrement
-    sequence = iterate(0) { |x| x - 1 }
+    sequence = iterate(1) { |x| x * 2 }
 
-    assert_equal sequence.first(5), [0, -1, -2, -3, -4]
+    assert_equal sequence.first(5), [1, 2, 4, 8, 16]
   end
 
   def test_iterate_include
