@@ -7,7 +7,7 @@ module Sequence
     end
   end
 
-  def repeatedly
+  def repeatedly(&block)
     Enumerator.new do |yielder|
       loop do
         yielder << yield
@@ -15,7 +15,7 @@ module Sequence
     end
   end
 
-  def iterate(arg = self)
+  def iterate(arg = self, &block)
     Enumerator.new do |yielder|
       current = arg
       loop do
