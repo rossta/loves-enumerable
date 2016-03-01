@@ -1,0 +1,26 @@
+GIT
+  remote: git://github.com/ruby-concurrency/concurrent-ruby.git
+  revision: 536478817a3d0440f00ac09098f3ba71f0d8ce7c
+  specs:
+    concurrent-ruby (1.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    m (1.4.2)
+      method_source (>= 0.6.7)
+      rake (>= 0.9.2.2)
+    method_source (0.8.2)
+    minitest (5.8.4)
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  concurrent-ruby!
+  m
+  minitest
+
+BUNDLED WITH
+   1.10.5
