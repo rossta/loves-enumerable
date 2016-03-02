@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    m (1.4.2)
+      method_source (>= 0.6.7)
+      rake (>= 0.9.2.2)
+    method_source (0.8.2)
+    minitest (5.8.4)
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  m
+  minitest
+
+BUNDLED WITH
+   1.11.2
