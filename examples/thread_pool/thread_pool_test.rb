@@ -42,4 +42,22 @@ class TestThreadPool < Minitest::Test
     assert_operator 4.5, :>, elapsed,
       'Elased time was too long: %.1f seconds' % elapsed
   end
+
+  def test_pool_size_limit
+    pool_size = 5
+    pool = ThreadPool.new(size: pool_size)
+    mutex = Mutex.new
+    threads = Set.new
+
+    100_000.times do
+      pool.schedule do
+        mutex.synchronize do
+          threads << Thread.current
+        end
+      end
+    end
+    pool.shutdown
+
+    assert_equal(pool_size, threads.size)
+  end
 end
