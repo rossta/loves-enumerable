@@ -21,6 +21,3 @@ DEPENDENCIES
   concurrent-ruby!
   m
   minitest
-
-BUNDLED WITH
-   1.10.5
