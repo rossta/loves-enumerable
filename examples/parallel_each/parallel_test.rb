@@ -8,17 +8,22 @@ class TestParallel < Minitest::Test
     yield
   end
 
-  def test_map_result
+  def test_map
     assert_equal [2, 4, 6, 8], [1, 2, 3, 4].parallel.map { |x| x * 2  }
   end
 
-  def test_each_result
+  def test_each
     count = 0
     [1, 2, 3, 4].parallel.each { |x| count += x  }
     assert_equal 10, count
   end
 
-  def test_saves_time
-    assert_operator 0.4, :> , time_taken { [1, 2, 3, 4].parallel.map { sleep 0.1 } }
+  def test_all?
+    assert_equal true, [1, 2, 3, 4].parallel.all? { |x| x > 0 }
+  end
+
+  def test_each_saves_time
+    assert_operator 0.4, :> ,
+      Benchmark.realtime { [1, 2, 3, 4].parallel.each { sleep 0.1 } }
   end
 end
