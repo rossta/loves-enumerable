@@ -3,10 +3,16 @@
 require "fiber"
 
 class CustomEnumerator
-  def initialize(target, iter)
-    @target = target
-    @iter   = iter
-    rewind
+  include Enumerable
+
+  def initialize(target = nil, method = :each, &block)
+    @target = if block_given?
+                CustomGenerator.new(&block)
+              else
+                target
+              end
+
+    @method = method
   end
 
   def each
@@ -16,22 +22,22 @@ class CustomEnumerator
   end
 
   def next
-    if @fiber.alive?
-      @fiber.resume
+    if fiber.alive?
+      fiber.resume
     else
       raise StopIteration
     end
   end
 
   def rewind
-    @fiber = create_fiber
+    @fiber = nil
   end
 
   def with_index
     return custom_enum(:with_index) unless block_given?
 
     i = 0
-    enumerate do |e|
+    @target.send(@method) do |e|
       out = yield(e, i)
       i += 1
       out
@@ -40,19 +46,40 @@ class CustomEnumerator
 
   private
 
-  def create_fiber
-    Fiber.new do
-      enumerate { |e| Fiber.yield(e) }
+  def fiber
+    @fiber ||= Fiber.new do
+      @target.send(@method) do |item|
+        Fiber.yield(item)
+      end
 
       raise StopIteration
     end
   end
 
-  def enumerate(&block)
-    @target.send(@iter, &block)
-  end
-
   def custon_enum(method)
     CustomEnumerator.new(@target, method)
+  end
+end
+
+class CustomGenerator
+  include Enumerable
+
+  def initialize(&block)
+    @yielder = Fiber.new do
+      yield Fiber
+      raise StopIteration
+    end
+  end
+
+  def each(&block)
+    loop { yield self.next }
+  end
+
+  def next
+    if @yielder.alive?
+      @yielder.resume
+    else
+      raise StopIteration
+    end
   end
 end
