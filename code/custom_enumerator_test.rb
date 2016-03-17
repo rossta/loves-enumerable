@@ -20,6 +20,30 @@ describe "Custom Enumerator" do
     assert_raises(StopIteration) { enum.next }
   end
 
+  it "supports generator function" do
+    enum = CustomEnumerator.new do |y|
+      a = 0
+      loop do
+        y.yield a
+        a += 1
+      end
+    end
+
+    enum.take(5).must_equal [0, 1, 2, 3, 4]
+  end
+
+  it "works with raw generator function" do
+    enum = CustomGenerator.new do |y|
+      a = 0
+      loop do
+        y.yield a
+        a += 1
+      end
+    end
+
+    enum.take(5).must_equal [0, 1, 2, 3, 4]
+  end
+
   it "supports rewind" do
     enum = @list.each
 
@@ -36,4 +60,5 @@ describe "Custom Enumerator" do
     expected = ["0. 3", "1. 4", "2. 7", "3. 13", "4. 42"]
     enum.with_index { |e,i| "#{i}. #{e}" }.must_equal(expected)
   end
+
 end
