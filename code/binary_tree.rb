@@ -19,9 +19,9 @@ class BinaryTree
   def in_order
     return enum_for(:post_order) unless block_given?
 
-    @left.pre_order(&Proc.new) if @left
+    @left.in_order(&Proc.new) if @left
     yield @value
-    @right.pre_order(&Proc.new) if @right
+    @right.in_order(&Proc.new) if @right
   end
 
   def post_order
@@ -54,6 +54,10 @@ end
 
 if __FILE__ == $0
 
+  def print_tree(label, enum)
+    puts "%s: %#{25 - label.length}s" % [label, enum.entries.join(' ')]
+  end
+
   tree = BinaryTree.new("a",
                         BinaryTree.new("b",
                                        BinaryTree.new("d"),
@@ -61,15 +65,8 @@ if __FILE__ == $0
                         BinaryTree.new("c",
                                        BinaryTree.new("f")))
 
-  puts "Pre-order"
-  tree.pre_order { |v| puts v }
-
-  puts "In-order"
-  tree.in_order { |v| puts v }
-
-  puts "Post-order"
-  tree.post_order { |v| puts v }
-
-  puts "Breadth-first"
-  tree.breadth_first { |v| puts v }
+  print_tree "Post-order", tree.pre_order
+  print_tree "In-order", tree.in_order
+  print_tree "Post-order", tree.post_order
+  print_tree "Breadth-first", tree.breadth_first
 end
