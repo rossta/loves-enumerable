@@ -1,3 +1,4 @@
+# $ python fibonacci.py
 def fibonacci(limit):
     a, b, c = 0, 1, 0
     while c < limit:
