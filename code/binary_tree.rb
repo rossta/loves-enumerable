@@ -59,14 +59,19 @@ if __FILE__ == $0
   end
 
   tree = BinaryTree.new("a",
-                        BinaryTree.new("b",
-                                       BinaryTree.new("d"),
-                                       BinaryTree.new("e")),
-                        BinaryTree.new("c",
-                                       BinaryTree.new("f")))
+          BinaryTree.new("b",
+            BinaryTree.new("d"),
+            BinaryTree.new("e")),
+          BinaryTree.new("c",
+            BinaryTree.new("f")))
 
   print_tree "Post-order", tree.pre_order
   print_tree "In-order", tree.in_order
   print_tree "Post-order", tree.post_order
   print_tree "Breadth-first", tree.breadth_first
+
+  tree.breadth_first.
+    with_index.
+    partition { |n, i| i.odd? }.
+    flat_map(&:join)
 end
