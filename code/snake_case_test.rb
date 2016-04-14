@@ -10,11 +10,12 @@ class TestSnakeCase < Minitest::Test
     assert_equal 184_756, SnakeCase::Iterative.path_count(10, 10)
   end
 
-  def test_iterative_enumerator
-    assert_equal 6, SnakeCase::Iterative.path_count_enum(2, 2)
-    assert_equal 10, SnakeCase::Iterative.path_count_enum(3, 2)
-    assert_equal 330, SnakeCase::Iterative.path_count_enum(4, 7)
-    assert_equal 184_756, SnakeCase::Iterative.path_count_enum(10, 10)
+  def test_enumrative
+    assert_equal 6, SnakeCase::Enumerative.path_count(2, 2)
+    assert_equal 10, SnakeCase::Enumerative.path_count(3, 2)
+    assert_equal 330, SnakeCase::Enumerative.path_count(4, 7)
+    require 'pry'; binding.pry
+    assert_equal 184_756, SnakeCase::Enumerative.path_count(10, 10)
   end
 
   def test_recursive
