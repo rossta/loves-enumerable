@@ -1,15 +1,3 @@
-# * * * * *
-# * * * * *
-# * * * * *
-# * * * * *
-# * * * * *
-#
-# 1x1:2   2 * 1
-# 2x2:6   3 * 2 * 1
-# 3x3:20  5 * 4
-# 4x4:70  5 * 4
-# 5x5:252
-
 module SnakeCase
   module Iterative
     module_function
@@ -18,13 +6,13 @@ module SnakeCase
       row = [1] * (n+1)
 
       m.times do
-        row = row.reduce([]) { |r, a| r << (a + r.last.to_i)  }
+        row = build_row(row)
       end
 
       row.last
     end
 
-    def path_count_2(m, n)
+    def path_count_enum(m, n)
       pascal(n).take(m+1).last.last
     end
 
@@ -34,9 +22,13 @@ module SnakeCase
 
         loop do
           y.yield(row)
-          row = row.reduce([]) { |r, a| r << (a + r.last.to_i)  }
+          row = build_row(row)
         end
       end
+    end
+
+    def build_row(row)
+      row.reduce([]) { |acc, p| acc << (p + acc.last.to_i)  }
     end
   end
 
@@ -50,7 +42,7 @@ module SnakeCase
     end
   end
 
-  module Binary
+  module Bruteforce
     module_function
 
     def path_count(m, n)
@@ -67,76 +59,55 @@ module SnakeCase
   end
 end
 
-require "benchmark/ips"
-RubyVM::InstructionSequence.compile_option = {
-  :tailcall_optimization => true,
-  :trace_instruction => false
-}
+if __FILE__ == $0
+  require "benchmark/ips"
 
-puts "Iterative"
-puts SnakeCase::Iterative.path_count(2, 2)
-puts SnakeCase::Iterative.path_count(3, 2)
-puts SnakeCase::Iterative.path_count(4, 7)
-puts SnakeCase::Iterative.path_count(10, 10)
-puts "Iterative 2"
-puts SnakeCase::Iterative.path_count_2(2, 2)
-puts SnakeCase::Iterative.path_count_2(3, 2)
-puts SnakeCase::Iterative.path_count_2(4, 7)
-puts SnakeCase::Iterative.path_count_2(10, 10)
-puts "Enumerable"
-puts SnakeCase::Enumerable.path_count(2, 2)
-puts SnakeCase::Enumerable.path_count(3, 2)
-puts SnakeCase::Enumerable.path_count(4, 7)
-puts SnakeCase::Enumerable.path_count(10, 10)
-puts "Imperative"
-puts SnakeCase::Imperative.path_count(2, 2)
-puts SnakeCase::Imperative.path_count(3, 2)
-puts SnakeCase::Imperative.path_count(4, 7)
-puts SnakeCase::Imperative.path_count(10, 10)
-puts "Recursive"
-puts SnakeCase::Recursive.path_count(2, 2)
-puts SnakeCase::Recursive.path_count(3, 2)
-puts SnakeCase::Recursive.path_count(4, 7)
-puts SnakeCase::Recursive.path_count(10, 10)
-puts "Factorial"
-puts SnakeCase::Factorial.path_count(2, 2)
-puts SnakeCase::Factorial.path_count(3, 2)
-puts SnakeCase::Factorial.path_count(4, 7)
-puts SnakeCase::Factorial.path_count(10, 10)
-puts "Binary"
-puts SnakeCase::Binary.path_count(2, 2)
-puts SnakeCase::Binary.path_count(3, 2)
-puts SnakeCase::Binary.path_count(4, 7)
-puts SnakeCase::Binary.path_count(10, 10)
+  Benchmark.ips do |x|
+    x.report("snake case iterative") do
+      SnakeCase::Iterative.path_count(10, 10)
+    end
 
-Benchmark.ips do |x|
-  x.report("snake case enumerable") do
-    SnakeCase::Enumerable.path_count(10, 10)
+    x.report("snake case iterative with enumerator") do
+      SnakeCase::Iterative.path_count_enum(10, 10)
+    end
+
+    x.report("snake case recursive") do
+      SnakeCase::Recursive.path_count(10, 10)
+    end
+
+    x.report("snake case factorial") do
+      SnakeCase::Factorial.path_count(10, 10)
+    end
+
+    x.report("snake case brute force") do
+      SnakeCase::Bruteforce.path_count(10, 10)
+    end
+
+    x.compare!
   end
 
-  x.report("snake case imperative") do
-    SnakeCase::Imperative.path_count(10, 10)
-  end
-
-  x.report("snake case iterative") do
-    SnakeCase::Iterative.path_count(10, 10)
-  end
-
-  x.report("snake case iterative 2") do
-    SnakeCase::Iterative.path_count_2(10, 10)
-  end
-
-  x.report("snake case recursive") do
-    SnakeCase::Recursive.path_count(10, 10)
-  end
-
-  x.report("snake case factorial") do
-    SnakeCase::Factorial.path_count(10, 10)
-  end
-
-  x.report("snake case binary") do
-    SnakeCase::Binary.path_count(10, 10)
-  end
-
-  x.compare! # Output the comparison
+# Warming up --------------------------------------
+# snake case iterative     5.444k i/100ms
+# snake case iterative with enumerator
+#                          4.523k i/100ms
+# snake case recursive     6.000  i/100ms
+# snake case factorial    41.874k i/100ms
+# snake case brute force
+#                          1.000  i/100ms
+# Calculating -------------------------------------
+# snake case iterative     55.953k (± 2.3%) i/s -    283.088k in   5.062138s
+# snake case iterative with enumerator
+#                          46.076k (± 2.0%) i/s -    230.673k in   5.008466s
+# snake case recursive     60.104  (± 1.7%) i/s -    306.000  in   5.092882s
+# snake case factorial    468.243k (± 2.6%) i/s -      2.345M in   5.011419s
+# snake case brute force
+#                           0.352  (± 0.0%) i/s -      2.000  in   5.686841s
+#
+# Comparison:
+# snake case factorial:   468242.6 i/s
+# snake case iterative:    55953.2 i/s - 8.37x slower
+# snake case iterative with enumerator:    46075.9 i/s - 10.16x slower
+# snake case recursive:       60.1 i/s - 7790.49x slower
+# snake case brute force:        0.4 i/s - 1331405.90x slower
+# Shared at: https://benchmark.fyi/d
 end
